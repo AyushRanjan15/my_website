@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Projects — Ayush Ranjan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Source+Serif+4:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="press.css" />
+</head>
+<body>
+  <main class="pr-wrap" data-screen-label="Projects">
+    <header class="pr-nameplate">
+      <div>
+        <a href="index.html" class="pr-brand-serif">Ayush&nbsp;Ranjan</a>
+        <div class="pr-brand-sub">Notes on machines that learn and systems that don&rsquo;t.</div>
+      </div>
+      <nav class="pr-nav">
+        <a href="index.html">Home</a>
+        <a href="writing.html">Essays</a>
+        <a href="projects.html" class="is-current">Projects</a>
+        <a href="reading.html">Reading</a>
+        <a href="about.html">About</a>
+        <a href="#" class="is-alt">Subscribe &rarr;</a>
+      </nav>
+    </header>
+    <div class="pr-dateline">
+      <span>The workshop</span>
+      <span class="pr-bullet">&middot;</span>
+      <span>4 projects, 2 shipping</span>
+      <span class="pr-bullet">&middot;</span>
+      <span>Updated 21 May 2026</span>
+    </div>
+
+    <div class="pr-double-rule"></div>
+
+    <section style="padding: 8px 0 16px">
+      <div class="pr-kicker" style="margin-bottom:14px">&sect; The workshop</div>
+      <h1 style="font-family:var(--pr-serif); font-size:52px; font-weight:600; letter-spacing:-0.02em; margin:0 0 20px; line-height:1.05; text-wrap:balance;">
+        Things being made, on purpose.
+      </h1>
+      <p class="pr-archive-intro">
+        I keep a small workshop of side projects, mostly in service of essays I&rsquo;m
+        trying to write. None of them are products. A few of them have outgrown their
+        original question, which is usually a good sign.
+      </p>
+    </section>
+
+    <section class="pr-proj-detail">
+      <!-- Subroute -->
+      <article class="pr-proj-row" id="subroute">
+        <div>
+          <div class="pr-proj-tag">2025&mdash;present</div>
+          <h2 class="pr-proj-name">Subroute</h2>
+          <div class="pr-proj-status">
+            <span class="pr-chip pr-chip--ship">shipping</span>
+          </div>
+          <div class="pr-proj-stack">
+            <span class="pr-stack-chip">go 1.22</span>
+            <span class="pr-stack-chip">k8s</span>
+            <span class="pr-stack-chip">grafana</span>
+            <span class="pr-stack-chip">otel</span>
+          </div>
+          <div class="pr-proj-links">
+            <a href="#" class="pr-btn">github &rarr;</a>
+            <a href="essay.html" class="pr-btn">writeup &rarr;</a>
+          </div>
+        </div>
+        <div>
+          <p class="pr-proj-lede">A tiny request router for sharding LLM inference traffic by token-budget, not by model name.</p>
+          <div class="pr-proj-stats">
+            <div>
+              <div class="pr-stat-num">~600</div>
+              <div class="pr-stat-label">lines of go</div>
+            </div>
+            <div>
+              <div class="pr-stat-num">4</div>
+              <div class="pr-stat-label">inference nodes</div>
+            </div>
+            <div>
+              <div class="pr-stat-num">99.97<span style="font-size:18px">%</span></div>
+              <div class="pr-stat-label">availability, 90 days</div>
+            </div>
+          </div>
+          <div class="pr-proj-body">
+            <p>
+              Subroute sits between our gateway and a small cluster of model servers. The
+              clever part isn&rsquo;t how it routes &mdash; it&rsquo;s how it counts. Every
+              request gets a cheap estimate of its token budget (input length + a sampled
+              completion length), and we route to whichever node has the most remaining
+              headroom in its KV cache.
+            </p>
+            <p>
+              Result: queue depth and tail latency stopped being correlated, which freed
+              us to tune for throughput without watching p99 blow up. There&rsquo;s a
+              writeup forthcoming on the cost side; the short version is that we shrank
+              the fleet by 20% with no change in user-visible latency.
+            </p>
+          </div>
+        </div>
+      </article>
+
+      <!-- Mistlake -->
+      <article class="pr-proj-row" id="mistlake">
+        <div>
+          <div class="pr-proj-tag">2024&mdash;present</div>
+          <h2 class="pr-proj-name">Mistlake</h2>
+          <div class="pr-proj-status">
+            <span class="pr-chip pr-chip--ship">shipping</span>
+          </div>
+          <div class="pr-proj-stack">
+            <span class="pr-stack-chip">rust</span>
+            <span class="pr-stack-chip">parquet</span>
+            <span class="pr-stack-chip">s3</span>
+            <span class="pr-stack-chip">arrow</span>
+          </div>
+          <div class="pr-proj-links">
+            <a href="#" class="pr-btn">github &rarr;</a>
+            <a href="essay.html" class="pr-btn">writeup &rarr;</a>
+          </div>
+        </div>
+        <div>
+          <p class="pr-proj-lede">A cold-storage layout for inference logs designed for a workload that&rsquo;s 90% read, 10% write, all skewed.</p>
+          <div class="pr-proj-stats">
+            <div>
+              <div class="pr-stat-num">38<span style="font-size:18px">%</span></div>
+              <div class="pr-stat-label">S3 spend, &darr;</div>
+            </div>
+            <div>
+              <div class="pr-stat-num">2.4B</div>
+              <div class="pr-stat-label">rows indexed</div>
+            </div>
+            <div>
+              <div class="pr-stat-num">9ms</div>
+              <div class="pr-stat-label">p50 lookup</div>
+            </div>
+          </div>
+          <div class="pr-proj-body">
+            <p>
+              Our inference logs are roughly 90% read-skewed: a tiny minority of trace
+              IDs get read constantly (debugging, replay, eval), and the rest sit cold for
+              months. Mistlake exploits that with a two-tier Parquet layout and a small
+              hot index in front. The design isn&rsquo;t novel; the discipline of refusing
+              to over-engineer it kind of is.
+            </p>
+            <p>
+              The interesting failure was during the migration: a one-line bug in the
+              tier-promotion thread caused the hot tier to grow at 5&times; its intended
+              rate for about 36 hours before anyone noticed. The lesson I keep going back
+              to is that <em>cheap monitoring of cheap things</em> is a real cost saver,
+              and the place I keep failing to apply it is during the migration itself.
+            </p>
+          </div>
+        </div>
+      </article>
+
+      <!-- pgvec-bench -->
+      <article class="pr-proj-row" id="pgvec-bench">
+        <div>
+          <div class="pr-proj-tag">2025</div>
+          <h2 class="pr-proj-name">pgvec-bench</h2>
+          <div class="pr-proj-status">
+            <span class="pr-chip pr-chip--pause">paused</span>
+          </div>
+          <div class="pr-proj-stack">
+            <span class="pr-stack-chip">python</span>
+            <span class="pr-stack-chip">postgres 16</span>
+            <span class="pr-stack-chip">qdrant</span>
+          </div>
+          <div class="pr-proj-links">
+            <a href="#" class="pr-btn">github &rarr;</a>
+          </div>
+        </div>
+        <div>
+          <p class="pr-proj-lede">A no-frills benchmark suite for pgvector vs Qdrant on realistic shapes &mdash; skewed dims, mixed read/write, real recall curves.</p>
+          <div class="pr-proj-body">
+            <p>
+              I got interested in pgvector during the &ldquo;when is pgvector enough&rdquo;
+              essay and then realized I didn&rsquo;t trust any of the benchmarks I could
+              find. So I wrote one. The current state is &ldquo;runs, but the report writer
+              is a mess&rdquo;; I&rsquo;ll come back to it after Subroute settles.
+            </p>
+            <p>
+              If you&rsquo;re someone who runs a serious vector workload and you have
+              opinions about what the workload generator is missing, please write.
+            </p>
+          </div>
+        </div>
+      </article>
+
+      <!-- tinyrl -->
+      <article class="pr-proj-row" id="tinyrl">
+        <div>
+          <div class="pr-proj-tag">2024 &middot; one weekend</div>
+          <h2 class="pr-proj-name">tinyrl</h2>
+          <div class="pr-proj-status">
+            <span class="pr-chip pr-chip--archive">archive</span>
+          </div>
+          <div class="pr-proj-stack">
+            <span class="pr-stack-chip">pytorch</span>
+            <span class="pr-stack-chip">350 LOC</span>
+          </div>
+          <div class="pr-proj-links">
+            <a href="#" class="pr-btn">github &rarr;</a>
+          </div>
+        </div>
+        <div>
+          <p class="pr-proj-lede">A single-file RLHF loop you can read in one sitting. Not for production. For learning.</p>
+          <div class="pr-proj-body">
+            <p>
+              I wrote tinyrl to convince myself I actually understood the moving parts of
+              RLHF. It does PPO over a small reward model on a toy summarization task. It
+              has every comment I wished a reference implementation had had when I was
+              trying to learn this. It is, on purpose, slow.
+            </p>
+            <p>
+              People sometimes write to ask if I&rsquo;ll productionize it. I will not.
+              The point of tinyrl is that it fits in your head.
+            </p>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="pr-section" style="margin-top: 32px">
+      <div class="pr-section-head">
+        <div class="pr-section-head-l">
+          <div class="pr-section-tag">&sect; In the drafts folder</div>
+          <h2 class="pr-section-title">What I&rsquo;m sketching, but haven&rsquo;t built</h2>
+        </div>
+      </div>
+      <ul style="list-style:none; padding:0; margin:0; font-family:var(--pr-serif); font-size:17px; color:var(--pr-ink); line-height:1.7;">
+        <li style="border-top:1px solid var(--pr-rule-soft); padding:12px 0;"><em style="color:var(--pr-accent)">~/ </em>A tiny disassembler-as-essay for inference graphs.</li>
+        <li style="border-top:1px solid var(--pr-rule-soft); padding:12px 0;"><em style="color:var(--pr-accent)">~/ </em>A Hugo-shaped static site generator that takes notebooks as primary input.</li>
+        <li style="border-top:1px solid var(--pr-rule-soft); padding:12px 0;"><em style="color:var(--pr-accent)">~/ </em>A reading-log CLI that&rsquo;s mostly an excuse to learn proper TUI rendering.</li>
+        <li style="border-top:1px solid var(--pr-rule-soft); padding:12px 0; border-bottom:1px solid var(--pr-rule-soft);"><em style="color:var(--pr-accent)">~/ </em>A short book on the architecture choices nobody writes down.</li>
+      </ul>
+    </section>
+
+    <footer class="pr-foot">
+      <div class="pr-double-rule"></div>
+      <div class="pr-foot-row">
+        <span class="pr-foot-mark">A.R.</span>
+        <span class="pr-foot-text">Published quarterly, irregularly. &copy; 2026 Ayush Ranjan.</span>
+        <span class="pr-foot-links">
+          <a href="#">RSS</a>
+          <a href="#">GitHub</a>
+          <a href="#">Scholar</a>
+          <a href="#">LinkedIn</a>
+        </span>
+      </div>
+    </footer>
+  </main>
+</body>
+</html>

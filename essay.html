@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Attention without softmax, in plain numbers — Ayush Ranjan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Source+Serif+4:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="press.css" />
+  <style>
+    .pr-reading-progress { position: fixed; top: 0; left: 0; right: 0; height: 2px; background: transparent; z-index: 50; }
+    .pr-reading-progress > div { height: 100%; background: var(--pr-accent); width: 0%; transition: width 0.05s linear; }
+  </style>
+</head>
+<body>
+  <div class="pr-reading-progress"><div id="pr-progress-bar"></div></div>
+
+  <main class="pr-wrap" data-screen-label="Essay">
+    <header class="pr-nameplate">
+      <div>
+        <a href="index.html" class="pr-brand-serif">Ayush&nbsp;Ranjan</a>
+        <div class="pr-brand-sub">Notes on machines that learn and systems that don&rsquo;t.</div>
+      </div>
+      <nav class="pr-nav">
+        <a href="index.html">Home</a>
+        <a href="writing.html" class="is-current">Essays</a>
+        <a href="projects.html">Projects</a>
+        <a href="reading.html">Reading</a>
+        <a href="about.html">About</a>
+        <a href="#" class="is-alt">Subscribe &rarr;</a>
+      </nav>
+    </header>
+
+    <div class="pr-double-rule"></div>
+
+    <article class="pr-article">
+      <div class="pr-crumbs">
+        <a href="writing.html">Essays</a>
+        <span style="margin: 0 6px">&rsaquo;</span>
+        <span>ML systems</span>
+        <span style="margin: 0 6px">&rsaquo;</span>
+        <span>2026</span>
+      </div>
+
+      <header class="pr-article-head">
+        <div class="pr-kicker">Essay &middot; ML systems &middot; No. 14</div>
+        <h1 class="pr-article-title">Attention without softmax, in plain numbers.</h1>
+        <p class="pr-article-dek">
+          A small experiment replacing softmax with a normalized linear map.
+          What breaks, what holds, and the one place the trick stops being free.
+        </p>
+        <div class="pr-article-meta">
+          <span class="pr-author-avatar">A</span>
+          <span>By <span class="pr-byline">Ayush Ranjan</span></span>
+          <span class="pr-bullet">&middot;</span>
+          <span>May 9, 2026</span>
+          <span class="pr-bullet">&middot;</span>
+          <span>7 min read</span>
+          <span class="pr-bullet">&middot;</span>
+          <span>1,420 words</span>
+        </div>
+      </header>
+
+      <div class="pr-article-body">
+        <p>
+          <span class="pr-dropcap">S</span>oftmax is one of those operators you carry
+          around without thinking about, like a paperclip. It does its small job: it
+          turns a vector of real numbers into something that sums to one and is everywhere
+          differentiable. The cost is hidden inside the exponential, which makes the
+          numerics fussy and makes the kernel writers earn their pay.
+        </p>
+        <p>
+          A few weeks ago I went back to a question I&rsquo;d half-asked myself in 2023:
+          how much of what attention does is the softmax, and how much is just the rest
+          of it &mdash; the dot products, the projections, the residual? The answer turns
+          out to be more interesting than I expected, but mostly because the question is
+          wrong.
+        </p>
+
+        <h2>The setup</h2>
+        <p>
+          I took a small decoder-only transformer (110M params, the kind that fits on a
+          single 4090) and replaced the softmax inside each attention head with a
+          family of simpler maps:
+        </p>
+        <ul>
+          <li>The identity over a clamped range,</li>
+          <li>An L<sub>1</sub> normalization of the absolute values,</li>
+          <li>A ReLU + L<sub>1</sub> normalization,</li>
+          <li>A learned per-head temperature with a sigmoid envelope.</li>
+        </ul>
+        <p>
+          Everything else stayed put. Same tokenizer, same training data, same optimizer.
+          The point wasn&rsquo;t to invent a new architecture &mdash; it was to push on a
+          single variable and see what wobbled.
+        </p>
+
+        <figure>
+          <div class="pr-fig-plate">
+            <span>Fig. 1 &mdash; loss curves across four softmax substitutes (10 seeds)</span>
+          </div>
+          <figcaption>Mean training loss over 12B tokens. Bands are 1&sigma; across ten seeds. The identity (red) is a clean disaster; the rest are interesting.</figcaption>
+        </figure>
+
+        <h2>What breaks</h2>
+        <p>
+          The identity map breaks immediately and obviously: the variance of the
+          attention scores compounds through the depth of the network until the residual
+          stream is just noise. This is the boring failure case. It tells you that
+          <em>some</em> normalization is doing real work; it does not tell you what.
+        </p>
+        <p>
+          The L<sub>1</sub>-of-absolute-values variant is more interesting. It trains.
+          It even trains reasonably well on the first 8B tokens. Then, somewhere around
+          step 10,000, a few heads collapse into a state where every key attends almost
+          equally to every value. Once you see this in one layer, you tend to see it in
+          the next two layers up.
+        </p>
+        <blockquote>
+          What softmax is buying you, mostly, is the right to have heads with strong
+          opinions. Take it away and you do not get a broken network; you get a
+          well-mannered, uninteresting one.
+        </blockquote>
+
+        <h2>What holds</h2>
+        <p>
+          The ReLU + L<sub>1</sub> variant holds up the best. It loses about 2.4% on
+          held-out perplexity vs. softmax, but it&rsquo;s stable across seeds and it
+          trains faster per step on the kernels I wrote (no <code>exp</code>, no max
+          subtraction trick, just a comparison and a sum). For inference on cheap
+          hardware, that&rsquo;s an honest trade.
+        </p>
+        <p>
+          The learned-temperature variant tied softmax on perplexity, which surprised
+          me. Looking at the temperatures after training, the model had landed on
+          something close to a soft-max with a per-head bias term &mdash; it had
+          rediscovered the operator I&rsquo;d tried to replace, basically. Sometimes the
+          right answer to &ldquo;can we remove this?&rdquo; is &ldquo;you can, but the
+          gradient will put it back.&rdquo;
+        </p>
+
+        <h2>The one place the trick stops being free</h2>
+        <p>
+          On a single GPU running batch size 1, all four variants come out roughly even
+          on wall-clock. The reason is unromantic: at small batch sizes the attention
+          operator isn&rsquo;t the bottleneck. The matmuls are.
+        </p>
+        <p>
+          Crank batch size up to 64, push the context to 16K tokens, and the picture
+          changes. The ReLU+L<sub>1</sub> kernel beats a tuned softmax kernel by about
+          1.6&times; on memory bandwidth, because the absence of <code>exp</code> means
+          you can fuse the normalization into the QK<sup>T</sup>V pipeline without
+          spilling. <em>This</em> is the place the trick stops being free for the people
+          on the other side of it: the inference-cost line on a P&amp;L.
+        </p>
+
+        <h2>What I took away</h2>
+        <p>
+          Three things, in no particular order:
+        </p>
+        <ol>
+          <li>Softmax is not load-bearing in the way I thought. It&rsquo;s load-bearing for
+            <em>character</em> &mdash; the ability of a head to be opinionated &mdash;
+            and that turns out to matter for quality but not for shape.</li>
+          <li>The cleanest substitute (ReLU + L<sub>1</sub>) is well-known. The
+            literature on this is decent and largely ignored, including by me.</li>
+          <li>The reason &ldquo;just remove softmax&rdquo; isn&rsquo;t a free lunch is
+            that the math of attention is the easy part. The hard part is the bookkeeping
+            that lets a 16K-context kernel run at half its theoretical throughput, and
+            softmax happens to be near the center of that bookkeeping.</li>
+        </ol>
+        <p>
+          If you&rsquo;ve done this experiment yourself, I&rsquo;d like to hear what
+          your seeds did. The code, such as it is, is up on
+          <a href="#" style="color:var(--pr-accent); text-decoration: underline; text-underline-offset: 3px">GitHub</a>.
+          It is not pretty.
+        </p>
+      </div>
+
+      <footer class="pr-article-foot">
+        <div class="pr-kicker">Continue reading</div>
+        <div class="pr-related">
+          <a href="essay.html">
+            <div class="pr-related-kicker">Field notes &middot; Apr 22</div>
+            <div class="pr-related-title">Cost-aware autoscaling for inference, or: why p99 lies</div>
+          </a>
+          <a href="essay.html">
+            <div class="pr-related-kicker">Notes &middot; Mar 18</div>
+            <div class="pr-related-title">Quantization, with a spreadsheet</div>
+          </a>
+        </div>
+      </footer>
+    </article>
+
+    <footer class="pr-foot">
+      <div class="pr-double-rule"></div>
+      <div class="pr-foot-row">
+        <span class="pr-foot-mark">A.R.</span>
+        <span class="pr-foot-text">Published quarterly, irregularly. &copy; 2026 Ayush Ranjan.</span>
+        <span class="pr-foot-links">
+          <a href="#">RSS</a>
+          <a href="#">GitHub</a>
+          <a href="#">Scholar</a>
+          <a href="#">LinkedIn</a>
+        </span>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    const bar = document.getElementById('pr-progress-bar');
+    const tick = () => {
+      const h = document.documentElement;
+      const max = h.scrollHeight - h.clientHeight;
+      const p = max > 0 ? (h.scrollTop / max) * 100 : 0;
+      bar.style.width = Math.min(100, Math.max(0, p)) + '%';
+    };
+    document.addEventListener('scroll', tick, { passive: true });
+    tick();
+  </script>
+</body>
+</html>

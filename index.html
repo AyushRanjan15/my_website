@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Ayush Ranjan — Notes on machines that learn and systems that don&rsquo;t.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Source+Serif+4:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="press.css" />
+</head>
+<body>
+  <main class="pr-wrap" data-screen-label="Home">
+    <header class="pr-nameplate">
+      <div>
+        <a href="index.html" class="pr-brand-serif">Ayush&nbsp;Ranjan</a>
+        <div class="pr-brand-sub">Notes on machines that learn and systems that don&rsquo;t.</div>
+      </div>
+      <nav class="pr-nav">
+        <a href="index.html" class="is-current">Home</a>
+        <a href="writing.html">Essays</a>
+        <a href="projects.html">Projects</a>
+        <a href="reading.html">Reading</a>
+        <a href="about.html">About</a>
+        <a href="#" class="is-alt">Subscribe &rarr;</a>
+      </nav>
+    </header>
+    <div class="pr-dateline">
+      <span>Vol. III, Issue 14</span>
+      <span class="pr-bullet">&middot;</span>
+      <span>Bengaluru</span>
+      <span class="pr-bullet">&middot;</span>
+      <span>Updated 21 May 2026</span>
+      <span class="pr-bullet">&middot;</span>
+      <span>An engineer&rsquo;s broadsheet</span>
+    </div>
+
+    <div class="pr-double-rule"></div>
+
+    <!-- Hero -->
+    <section class="pr-hero">
+      <div>
+        <div class="pr-kicker">The lede</div>
+        <h1 class="pr-hero-title">
+          Building <em>ML systems</em><br>
+          for the boring middle layer<br>
+          between training and the bill.
+        </h1>
+        <p class="pr-hero-dek">
+          I&rsquo;m a machine-learning engineer who spends most of my time on the parts no
+          slide deck loves: inference latency, cluster economics, and the slow craft of
+          making a software system you can reason about. This is where I work in
+          public &mdash; in essays, projects, and a quiet reading log.
+        </p>
+        <div class="pr-hero-foot">
+          <span class="pr-byline">By Ayush Ranjan</span>
+          <span class="pr-bullet">&middot;</span>
+          <a href="writing.html" class="pr-btn">Start with the essays &rarr;</a>
+        </div>
+      </div>
+      <aside class="pr-hero-r">
+        <div class="pr-kicker">Essay &middot; ML systems</div>
+        <h2 class="pr-feat-title">
+          <a href="essay.html">Attention without softmax, in plain numbers</a>
+        </h2>
+        <p class="pr-feat-dek">
+          Walking through a small experiment replacing softmax with a normalized
+          linear map. What breaks, what holds, and the one place the trick stops
+          being free.
+        </p>
+        <div class="pr-feat-meta">
+          <span>May 9, 2026</span>
+          <span class="pr-bullet">&middot;</span>
+          <span>7 min read</span>
+        </div>
+        <div class="pr-feat-plate">
+          <span class="pr-feat-plate-label">Fig. 1 &mdash; recall fall-off as softmax is relaxed</span>
+        </div>
+      </aside>
+    </section>
+
+    <div class="pr-double-rule"></div>
+
+    <!-- Now strip -->
+    <section class="pr-now-strip">
+      <div class="pr-now-col">
+        <div class="pr-now-k">Currently writing</div>
+        <div class="pr-now-v">A small paper on cost-aware batching for mixture-of-experts inference. Mostly drawing.</div>
+      </div>
+      <div class="pr-now-col">
+        <div class="pr-now-k">Currently reading</div>
+        <div class="pr-now-v">Ousterhout, again. The second half hits harder this time around.</div>
+      </div>
+      <div class="pr-now-col">
+        <div class="pr-now-k">Open to</div>
+        <div class="pr-now-v">Quiet conversations about ML infra, system design, and books.</div>
+      </div>
+    </section>
+
+    <!-- Essays -->
+    <section class="pr-section">
+      <div class="pr-section-head">
+        <div class="pr-section-head-l">
+          <div class="pr-section-tag">&sect; I</div>
+          <h2 class="pr-section-title">Recent essays</h2>
+        </div>
+        <a href="writing.html" class="pr-section-link">The archive (47 essays) &rarr;</a>
+      </div>
+      <ol class="pr-essay-grid">
+        <li class="pr-essay">
+          <div class="pr-essay-head">
+            <div class="pr-kicker">Field notes</div>
+            <div class="pr-essay-meta">Apr 22 &middot; 11 min</div>
+          </div>
+          <h3 class="pr-essay-title"><a href="essay.html">Cost-aware autoscaling for inference, or: why p99 lies</a></h3>
+          <p class="pr-essay-blurb">Notes from a quarter spent watching a GPU fleet melt money. A small model of demand, a smaller model of cost, and the gap between them.</p>
+        </li>
+        <li class="pr-essay">
+          <div class="pr-essay-head">
+            <div class="pr-kicker">Architecture</div>
+            <div class="pr-essay-meta">Apr 03 &middot; 9 min</div>
+          </div>
+          <h3 class="pr-essay-title"><a href="essay.html">Your microservice is a distributed monolith</a></h3>
+          <p class="pr-essay-blurb">On call boundaries vs. data boundaries. The graph that matters is the one you can&rsquo;t see in the org chart.</p>
+        </li>
+        <li class="pr-essay">
+          <div class="pr-essay-head">
+            <div class="pr-kicker">Notes</div>
+            <div class="pr-essay-meta">Mar 18 &middot; 6 min</div>
+          </div>
+          <h3 class="pr-essay-title"><a href="essay.html">Quantization, with a spreadsheet</a></h3>
+          <p class="pr-essay-blurb">INT8 vs FP8 vs the rest, with a working sheet you can copy. The point is to feel the bits, not memorize a table.</p>
+        </li>
+        <li class="pr-essay">
+          <div class="pr-essay-head">
+            <div class="pr-kicker">Case study</div>
+            <div class="pr-essay-meta">Feb 29 &middot; 8 min</div>
+          </div>
+          <h3 class="pr-essay-title"><a href="essay.html">When pgvector is enough</a></h3>
+          <p class="pr-essay-blurb">A two-million-row case study, and the thresholds I use before reaching for a dedicated vector store.</p>
+        </li>
+      </ol>
+    </section>
+
+    <div class="pr-single-rule"></div>
+
+    <!-- Projects -->
+    <section class="pr-section">
+      <div class="pr-section-head">
+        <div class="pr-section-head-l">
+          <div class="pr-section-tag">&sect; II</div>
+          <h2 class="pr-section-title">From the workshop</h2>
+        </div>
+        <a href="projects.html" class="pr-section-link">All projects &rarr;</a>
+      </div>
+      <ol class="pr-essay-grid pr-essay-grid--three">
+        <li class="pr-essay">
+          <div class="pr-essay-head">
+            <h3 class="pr-essay-title" style="margin:0"><a href="projects.html#subroute">Subroute</a></h3>
+            <span class="pr-chip pr-chip--ship">shipping</span>
+          </div>
+          <p class="pr-essay-blurb" style="font-family:var(--pr-serif);font-style:italic;font-size:15px;color:var(--pr-ink-2);margin-bottom:10px">A tiny request router for sharding LLM traffic by token-budget.</p>
+          <p class="pr-essay-blurb">~600 LOC of Go. In production behind a 4-node inference cluster.</p>
+        </li>
+        <li class="pr-essay">
+          <div class="pr-essay-head">
+            <h3 class="pr-essay-title" style="margin:0"><a href="projects.html#mistlake">Mistlake</a></h3>
+            <span class="pr-chip pr-chip--ship">shipping</span>
+          </div>
+          <p class="pr-essay-blurb" style="font-family:var(--pr-serif);font-style:italic;font-size:15px;color:var(--pr-ink-2);margin-bottom:10px">Cold-storage layout for inference logs that survives a 90% read-skew.</p>
+          <p class="pr-essay-blurb">Cuts the S3 bill by ~38% on our shape. Rust + Parquet, single binary.</p>
+        </li>
+        <li class="pr-essay">
+          <div class="pr-essay-head">
+            <h3 class="pr-essay-title" style="margin:0"><a href="projects.html#pgvec-bench">pgvec-bench</a></h3>
+            <span class="pr-chip pr-chip--pause">paused</span>
+          </div>
+          <p class="pr-essay-blurb" style="font-family:var(--pr-serif);font-style:italic;font-size:15px;color:var(--pr-ink-2);margin-bottom:10px">A no-frills benchmark suite for pgvector vs Qdrant.</p>
+          <p class="pr-essay-blurb">Mixed read/write, skewed dimensions, realistic recall curves.</p>
+        </li>
+      </ol>
+    </section>
+
+    <div class="pr-single-rule"></div>
+
+    <!-- Reading -->
+    <section class="pr-section">
+      <div class="pr-section-head">
+        <div class="pr-section-head-l">
+          <div class="pr-section-tag">&sect; III</div>
+          <h2 class="pr-section-title">From the reading log</h2>
+        </div>
+        <a href="reading.html" class="pr-section-link">The full log &rarr;</a>
+      </div>
+      <ul class="pr-read-list">
+        <li class="pr-read-item">
+          <div class="pr-read-num">001.</div>
+          <div>
+            <span class="pr-read-title">A Philosophy of Software Design</span>
+            <span class="pr-read-by">&mdash; John Ousterhout</span>
+            <div class="pr-read-note">Rereading. The second half hits harder this time. Complexity is the only enemy.</div>
+          </div>
+          <div class="pr-read-verdict is-current">rereading</div>
+        </li>
+        <li class="pr-read-item">
+          <div class="pr-read-num">002.</div>
+          <div>
+            <span class="pr-read-title">Designing Data-Intensive Applications</span>
+            <span class="pr-read-by">&mdash; Martin Kleppmann</span>
+            <div class="pr-read-note">Still the reference. Chapters 5 and 11 do a lot of work in my head.</div>
+          </div>
+          <div class="pr-read-verdict">reference</div>
+        </li>
+        <li class="pr-read-item">
+          <div class="pr-read-num">003.</div>
+          <div>
+            <span class="pr-read-title">Mixtral of Experts</span>
+            <span class="pr-read-by">&mdash; Mistral AI, 2024</span>
+            <div class="pr-read-note">Cleanest description of routing-by-expert I&rsquo;ve read in a paper.</div>
+          </div>
+          <div class="pr-read-verdict is-great">great</div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Foot -->
+    <footer class="pr-foot">
+      <div class="pr-double-rule"></div>
+      <div class="pr-foot-row">
+        <span class="pr-foot-mark">A.R.</span>
+        <span class="pr-foot-text">Published quarterly, irregularly. &copy; 2026 Ayush Ranjan. Set in Source Serif &amp; Inter.</span>
+        <span class="pr-foot-links">
+          <a href="#">RSS</a>
+          <a href="#">GitHub</a>
+          <a href="#">Scholar</a>
+          <a href="#">LinkedIn</a>
+        </span>
+      </div>
+    </footer>
+  </main>
+</body>
+</html>
