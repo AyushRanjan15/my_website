@@ -169,6 +169,19 @@ a:hover { color: var(--fg); }
 }
 .pill--accent { background: var(--accent); color: var(--on-accent); }
 
+/* ── Pull quote ──────────────────────────────────────────────── */
+.quote { margin: 0; border-top: 1px solid var(--line); padding-top: 56px; }
+.quote blockquote { margin: 0; }
+.quote p {
+  margin: 0;
+  font-size: clamp(30px, 4.2vw, 52px);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  max-width: 24ch;
+  text-wrap: balance;
+}
+.quote figcaption { margin-top: 24px; }
+
 /* ── Inner page heads ────────────────────────────────────────── */
 .page-head { padding-block: 100px 72px; }
 .page-title {
