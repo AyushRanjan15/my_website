@@ -1,155 +1,182 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>About — Ayush Ranjan</title>
+  <meta name="description" content="About Ayush Ranjan, machine-learning engineer in Melbourne.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Source+Serif+4:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="press.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..700&family=Fragment+Mono&family=Spectral:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="site.css">
 </head>
 <body>
-  <main class="pr-wrap" data-screen-label="About">
-    <header class="pr-nameplate">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="wrap site-header">
+    <a href="index.html" class="brand">Ayush Ranjan<span>.</span></a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="writing.html">Essays</a>
+      <a href="projects.html">Projects</a>
+      <a href="reading.html">Reading</a>
+      <a href="about.html" aria-current="page">About</a>
+      <a href="#contact" class="cta">Say hi &rarr;</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="wrap about-intro">
       <div>
-        <a href="index.html" class="pr-brand-serif">Ayush&nbsp;Ranjan</a>
-        <div class="pr-brand-sub">Notes on machines that learn and systems that don&rsquo;t.</div>
+        <h1 class="h page-title">Hi, I&rsquo;m <span class="accent-word">Ayush</span>.</h1>
+        <p class="lede">
+          Machine-learning engineer working the boring middle layer between training and the bill.
+          Cloud architecture by necessity, software design by inclination, books by habit.
+        </p>
+        <div class="prose">
+          <p>
+            I grew up taking radios apart and never quite learned to put them back. The
+            parts I broke at twelve are the parts I&rsquo;m still curious about now &mdash;
+            how a small, fragile system holds together; how it gets repaired; how the
+            repair shows up later as a feature, or a scar.
+          </p>
+          <p>
+            Today I work as a machine learning engineer. Most of what I do is unglamorous:
+            inference latency, cluster economics, the slow craft of making a software
+            system you can hold in your head. I&rsquo;ve trained models. They&rsquo;re not
+            the interesting part. The interesting part is everything around them &mdash; the
+            interfaces, the schedulers, the bills.
+          </p>
+        </div>
+        <a href="#contact" class="btn">Get in touch</a>
       </div>
-      <nav class="pr-nav">
-        <a href="index.html">Home</a>
-        <a href="writing.html">Essays</a>
-        <a href="projects.html">Projects</a>
-        <a href="reading.html">Reading</a>
-        <a href="about.html" class="is-current">About</a>
-      </nav>
-    </header>
-    <div class="pr-dateline">
-      <span>About the author</span>
-      <span class="pr-bullet">&middot;</span>
-      <span>A short, honest bio</span>
-      <span class="pr-bullet">&middot;</span>
-      <span>Letters welcome</span>
-    </div>
-
-    <div class="pr-double-rule"></div>
-
-    <section style="padding: 8px 0 16px">
-      <div class="pr-kicker" style="margin-bottom:14px">&sect; About</div>
-      <h1 style="font-family:var(--pr-serif); font-size:60px; font-weight:600; letter-spacing:-0.022em; margin:0 0 12px; line-height:1.02; text-wrap:balance;">
-        Ayush Ranjan.
-      </h1>
-      <p style="font-family:var(--pr-serif); font-style:italic; font-size:22px; color:var(--pr-ink-2); max-width:680px; margin: 0 0 24px; text-wrap:pretty;">
-        Machine-learning engineer working the boring middle layer between training and the bill.
-        Cloud architecture by necessity, software design by inclination, books by habit.
-      </p>
+      <figure class="portrait">
+        <img src="photos/me_for_about_page.JPG" alt="Ayush Ranjan on a ski slope" width="4032" height="3024" loading="eager">
+        <figcaption class="meta">Portrait &mdash; A.R., 2026</figcaption>
+      </figure>
     </section>
 
-    <section class="pr-about">
-      <div class="pr-about-body">
-        <p>
-          <span class="pr-dropcap">I</span>
-          grew up taking radios apart and never quite learned to put them back. The
-          parts I broke at twelve are the parts I&rsquo;m still curious about now &mdash;
-          how a small, fragile system holds together; how it gets repaired; how the
-          repair shows up later as a feature, or a scar.
-        </p>
-        <p>
-          Today I work as a machine learning engineer. Most of what I do is unglamorous:
-          inference latency, cluster economics, the slow craft of making a software
-          system you can hold in your head. I&rsquo;ve trained models. They&rsquo;re not
-          the interesting part. The interesting part is everything around them &mdash; the
-          interfaces, the schedulers, the bills.
-        </p>
-
-        <h2>What I care about</h2>
-        <p>
-          Three things, mostly. <em>Software you can reason about</em>: small surface
-          areas, deep behaviour, clear seams. <em>Honest measurement</em>: real
-          latencies, real costs, real failures, not the ones in the deck.
-          <em>Slow craft</em>: the kind of careful work that compounds over months and
-          doesn&rsquo;t show up well in a sprint review.
-        </p>
-        <p>
-          I&rsquo;m suspicious of cleverness, including my own. I&rsquo;m suspicious of
-          frameworks that ask you to commit to them before you&rsquo;ve learned the
-          shape of your problem. I&rsquo;m suspicious of any system whose monitoring is
-          more sophisticated than the system itself.
-        </p>
-
-        <h2>What I&rsquo;m doing now</h2>
-        <p>
-          I build the inference platform at an early-stage MedTech company. Day to day,
-          that&rsquo;s a mix of architecture work, mentoring, and writing the small
-          essays that show up on this site. I keep <a href="projects.html" style="color:var(--pr-accent);text-decoration:underline;text-underline-offset:3px">a workshop of side projects</a>
-          on the side, mostly in service of essays I&rsquo;m trying to write.
-        </p>
-        <p>
-          I live in Melbourne. I read more than I finish, walk more than I run, and
-          have a side quest to do an international powerlifting meet that will probably not happen until 2030.
-          I am trying to travel more, experience more, and live more than I was supposed to.
-        </p>
-
-        <h2>How to write to me</h2>
-        <p>
-          Letters are welcome, even short ones. <em>Especially</em> short ones &mdash;
-          I&rsquo;ve gotten the best ideas of the past year from one-paragraph notes
-          from strangers. I read everything; I reply when I can. If you&rsquo;re writing
-          about a specific essay, please mention the title in the subject line so I can
-          find it again later.
-        </p>
-        <p style="font-family:var(--pr-serif); font-style:italic; color:var(--pr-ink-2); margin-top: 1.6em;">
-          &mdash; Ayush
-        </p>
+    <section class="wrap section" aria-labelledby="care-h">
+      <div class="section-grid">
+        <h2 class="label" id="care-h">What I care about</h2>
+        <div>
+          <div class="cards">
+            <div class="card">
+              <span class="meta" style="color:var(--accent)">01</span>
+              <h3 class="h card-title">Software you can reason about</h3>
+              <p>Small surface areas, deep behaviour, clear seams.</p>
+            </div>
+            <div class="card">
+              <span class="meta" style="color:var(--accent)">02</span>
+              <h3 class="h card-title">Honest measurement</h3>
+              <p>Real latencies, real costs, real failures, not the ones in the deck.</p>
+            </div>
+            <div class="card">
+              <span class="meta" style="color:var(--accent)">03</span>
+              <h3 class="h card-title">Slow craft</h3>
+              <p>The kind of careful work that compounds over months and doesn&rsquo;t show up well in a sprint review.</p>
+            </div>
+          </div>
+          <div class="prose" style="margin-top:40px;max-width:62ch">
+            <p>
+              I&rsquo;m suspicious of cleverness, including my own. I&rsquo;m suspicious of
+              frameworks that ask you to commit to them before you&rsquo;ve learned the
+              shape of your problem. I&rsquo;m suspicious of any system whose monitoring is
+              more sophisticated than the system itself.
+            </p>
+          </div>
+        </div>
       </div>
-
-      <aside class="pr-about-aside">
-        <div class="pr-portrait">
-          <img src="photos/me_for_about_page.JPG" alt="Ayush Ranjan on a ski slope" />
-        </div>
-        <div class="pr-portrait-caption">Portrait — A.R., 2026</div>
-
-        <div class="pr-aside-block">
-          <div class="pr-aside-label">Currently</div>
-          <ul class="pr-aside-list">
-            <li><span class="pr-k">Role</span><span>ML Deployment Engineer</span></li>
-            <li><span class="pr-k">Based</span><span>Melbourne, AU</span></li>
-            <li><span class="pr-k">Coffee</span><span>Long Black, one sugar</span></li>
-            <li><span class="pr-k">Side</span><span>An essay, slowly</span></li>
-          </ul>
-        </div>
-
-        <div class="pr-aside-block">
-          <div class="pr-aside-label">Previously</div>
-          <ul class="pr-aside-list">
-            <li><span class="pr-k">2024&ndash;25</span><span>MLE, stoping noise nuisance</span></li>
-            <li><span class="pr-k">2021&ndash;24</span><span>HDR student, RMIT</span></li>
-            <li><span class="pr-k">2021&ndash;21</span><span>Data Scientist, fintech</span></li>
-          </ul>
-        </div>
-
-        <div class="pr-aside-block">
-          <div class="pr-aside-label">Find me</div>
-          <ul class="pr-aside-list">
-            <li><span class="pr-k">Email</span><span>ayush&nbsp;[at]&nbsp;ayushranjan15@gmail.com</span></li>
-            <li><span class="pr-k">GitHub</span><span>@AyushRanjan15</span></li>
-            <li><span class="pr-k">LinkedIn</span><span>/in/ayush-ranjan-015</span></li>
-          </ul>
-        </div>
-      </aside>
     </section>
 
-    <footer class="pr-foot">
-      <div class="pr-double-rule"></div>
-      <div class="pr-foot-row">
-        <span class="pr-foot-mark">A.R.</span>
-        <span class="pr-foot-text">&copy; 2026 Ayush Ranjan.</span>
-        <span class="pr-foot-links">
-          <a href="https://github.com/AyushRanjan15" target="_blank" rel="noopener">GitHub</a>
-          <a href="https://www.linkedin.com/in/ayush-ranjan-015" target="_blank" rel="noopener">LinkedIn</a>
-        </span>
+    <section class="wrap section" aria-labelledby="now-h">
+      <div class="section-grid">
+        <h2 class="label" id="now-h">What I&rsquo;m doing now</h2>
+        <div class="split">
+          <div class="prose">
+            <p>
+              I build the inference platform at an early-stage MedTech company. Day to day,
+              that&rsquo;s a mix of architecture work, mentoring, and writing the small
+              essays that show up on this site. I keep <a href="projects.html">a workshop of side projects</a>
+              on the side, mostly in service of essays I&rsquo;m trying to write.
+            </p>
+            <p>
+              I live in Melbourne. I read more than I finish, walk more than I run, and
+              have a side quest to do an international powerlifting meet that will probably not happen until 2030.
+              I am trying to travel more, experience more, and live more than I was supposed to.
+            </p>
+          </div>
+          <dl class="facts">
+            <dt>Role</dt><dd>ML Deployment Engineer</dd>
+            <dt>Based</dt><dd>Melbourne, AU</dd>
+            <dt>Coffee</dt><dd>Long Black, one sugar</dd>
+            <dt>Side</dt><dd>An essay, slowly</dd>
+          </dl>
+        </div>
       </div>
-    </footer>
+    </section>
+
+    <section class="wrap section" aria-labelledby="exp-h">
+      <div class="section-grid">
+        <h2 class="label" id="exp-h">Experience</h2>
+        <ol class="timeline">
+          <li><span class="h role">ML Deployment Engineer</span><span class="org">Early-stage MedTech</span><span class="meta">Now</span></li>
+          <li><span class="h role">Machine Learning Engineer</span><span class="org">Stopping noise nuisance</span><span class="meta">2024&ndash;25</span></li>
+          <li><span class="h role">HDR student</span><span class="org">RMIT</span><span class="meta">2021&ndash;24</span></li>
+          <li><span class="h role">Data Scientist</span><span class="org">Fintech</span><span class="meta">2021</span></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="wrap" id="contact" aria-labelledby="contact-h">
+      <div class="section-grid">
+        <h2 class="label" id="contact-h">How to write to me</h2>
+        <div class="split">
+          <div class="prose">
+            <p>
+              Letters are welcome, even short ones. <em>Especially</em> short ones &mdash;
+              I&rsquo;ve gotten the best ideas of the past year from one-paragraph notes
+              from strangers. I read everything; I reply when I can. If you&rsquo;re writing
+              about a specific essay, please mention the title in the subject line so I can
+              find it again later.
+            </p>
+            <p style="font-style:italic;color:var(--muted)">&mdash; Ayush</p>
+          </div>
+          <div>
+            <ul class="link-list h">
+              <li><a href="https://github.com/AyushRanjan15" target="_blank" rel="noopener">GitHub <span class="arrow" aria-hidden="true">&#8599;</span></a></li>
+              <li><a href="https://www.linkedin.com/in/ayush-ranjan-015" target="_blank" rel="noopener">LinkedIn <span class="arrow" aria-hidden="true">&#8599;</span></a></li>
+            </ul>
+            <p class="meta" style="margin:20px 0 0">Email: ayush&nbsp;[at]&nbsp;ayushranjan15@gmail.com</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap" style="padding-top:96px" aria-labelledby="colophon-h">
+      <div class="section-grid">
+        <h2 class="label" id="colophon-h">Colophon</h2>
+        <p style="margin:0;color:var(--muted);font-size:17px;max-width:62ch">
+          Headlines in <span class="h" style="color:var(--fg)">Bricolage Grotesque</span>, text in
+          <span style="color:var(--fg);font-style:italic">Spectral</span>, details in
+          <span class="mono" style="color:var(--fg);font-size:15px">Fragment Mono</span>.
+          Ink, paper and one cobalt blue.
+        </p>
+      </div>
+    </section>
   </main>
+
+  <footer class="wrap site-footer">
+    <div class="footer-grid">
+      <div>
+        <p class="h footer-line">Letters are <span class="accent-word">welcome</span>.</p>
+        <p class="footer-sub">Notes on machines that learn and systems that don&rsquo;t.</p>
+      </div>
+      <div class="footer-links">
+        <a href="https://github.com/AyushRanjan15" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/ayush-ranjan-015" target="_blank" rel="noopener">LinkedIn</a>
+        <span>&copy; 2026 Ayush Ranjan</span>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>

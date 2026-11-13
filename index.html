@@ -1,138 +1,135 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Ayush Ranjan — Notes on machines that learn and systems that don&rsquo;t.</title>
+  <meta name="description" content="Ayush Ranjan, machine-learning engineer in Melbourne. Essays, projects and a reading log on ML infrastructure and software design.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Source+Serif+4:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="press.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..700&family=Fragment+Mono&family=Spectral:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="site.css">
 </head>
 <body>
-  <main class="pr-wrap" data-screen-label="Home">
-    <header class="pr-nameplate">
-      <div>
-        <a href="index.html" class="pr-brand-serif">Ayush&nbsp;Ranjan</a>
-        <div class="pr-brand-sub">Notes on machines that learn and systems that don&rsquo;t.</div>
-      </div>
-      <nav class="pr-nav">
-        <a href="index.html" class="is-current">Home</a>
-        <a href="writing.html">Essays</a>
-        <a href="projects.html">Projects</a>
-        <a href="reading.html">Reading</a>
-        <a href="about.html">About</a>
-      </nav>
-    </header>
-    <div class="pr-dateline">
-      <span>Melbourne, AU</span>
-      <span class="pr-bullet">&middot;</span>
-      <span>An engineer&rsquo;s broadsheet</span>
-    </div>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-    <div class="pr-double-rule"></div>
+  <header class="wrap site-header">
+    <a href="index.html" class="brand" aria-current="page">Ayush Ranjan<span>.</span></a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="writing.html">Essays</a>
+      <a href="projects.html">Projects</a>
+      <a href="reading.html">Reading</a>
+      <a href="about.html">About</a>
+      <a href="about.html#contact" class="cta">Say hi &rarr;</a>
+    </nav>
+  </header>
 
-    <!-- Hero -->
-    <section class="pr-hero">
-      <div>
-        <div class="pr-kicker">The lede</div>
-        <h1 class="pr-hero-title">
-          Building <em>ML systems</em><br>
-          for the boring middle layer<br>
-          between training and the bill.
-        </h1>
-        <p class="pr-hero-dek">
-          I&rsquo;m a machine-learning engineer who spends most of my time on the parts no
-          slide deck loves: inference latency, cluster economics, and the slow craft of
-          making a software system you can reason about. This site is where that thinking
-          will show up &mdash; in essays, projects, and a reading log, as they&rsquo;re written.
-        </p>
-        <div class="pr-hero-foot">
-          <span class="pr-byline">By Ayush Ranjan</span>
-          <span class="pr-bullet">&middot;</span>
-          <a href="about.html" class="pr-btn">Read the about page &rarr;</a>
+  <main id="main">
+    <section class="wrap hero">
+      <p class="label">ML Deployment Engineer &middot; Melbourne, AU</p>
+      <h1 class="h hero-title">Building <span class="accent-word">ML systems</span> for the boring middle layer between training and the bill.</h1>
+      <p class="lede">
+        I&rsquo;m a machine-learning engineer who spends most of my time on the parts no
+        slide deck loves: inference latency, cluster economics, and the slow craft of
+        making a software system you can reason about. This site is where that thinking
+        will show up &mdash; in <a href="writing.html">essays</a>, <a href="projects.html">projects</a>,
+        and a <a href="reading.html">reading log</a>, as they&rsquo;re written.
+      </p>
+      <ul class="pills" aria-label="Open to conversations about">
+        <li class="pill pill--accent">Open to conversations</li>
+        <li class="pill">ML infra</li>
+        <li class="pill">System design</li>
+        <li class="pill">Books</li>
+      </ul>
+    </section>
+
+    <section class="wrap section" aria-labelledby="projects-h">
+      <div class="section-grid">
+        <div class="section-side">
+          <h2 class="label" id="projects-h">From the workshop</h2>
+          <a href="projects.html" class="more">All projects &rarr;</a>
+        </div>
+        <div>
+          <div class="empty">
+            <p class="h empty-title">Nothing shipped publicly yet.</p>
+            <p>Side projects will land here once they&rsquo;re ready to show.</p>
+          </div>
+          <!-- When you have projects, replace the .empty block with:
+          <ul class="rows">
+            <li>
+              <a href="projects/your-project.html" class="row">
+                <span class="meta">01</span>
+                <span><span class="h row-title">Project name</span><span class="row-desc">One line on what it does.</span></span>
+                <span class="meta">2026 · Tool</span>
+              </a>
+            </li>
+          </ul>
+          -->
         </div>
       </div>
-      <aside class="pr-hero-r">
-        <div class="pr-kicker">Status</div>
-        <h2 class="pr-feat-title">Nothing published yet.</h2>
-        <p class="pr-feat-dek">
-          This site is new. Essays, projects, and a reading log will land here as they&rsquo;re
-          actually written &mdash; not before.
-        </p>
-      </aside>
     </section>
 
-    <div class="pr-double-rule"></div>
-
-    <!-- Now strip -->
-    <section class="pr-now-strip">
-      <div class="pr-now-col">
-        <div class="pr-now-k">Role</div>
-        <div class="pr-now-v">ML Deployment Engineer</div>
-      </div>
-      <div class="pr-now-col">
-        <div class="pr-now-k">Based</div>
-        <div class="pr-now-v">Melbourne, AU</div>
-      </div>
-      <div class="pr-now-col">
-        <div class="pr-now-k">Open to</div>
-        <div class="pr-now-v">Quiet conversations about ML infra, system design, and books.</div>
-      </div>
-    </section>
-
-    <!-- Essays -->
-    <section class="pr-section">
-      <div class="pr-section-head">
-        <div class="pr-section-head-l">
-          <div class="pr-section-tag">&sect; I</div>
-          <h2 class="pr-section-title">Essays</h2>
+    <section class="wrap section" aria-labelledby="essays-h">
+      <div class="section-grid">
+        <div class="section-side">
+          <h2 class="label" id="essays-h">Essays</h2>
+          <a href="writing.html" class="more">The archive &rarr;</a>
         </div>
-        <a href="writing.html" class="pr-section-link">The archive &rarr;</a>
-      </div>
-      <p style="font-family:var(--pr-serif); font-style:italic; color:var(--pr-ink-2);">Nothing published yet. First essay is coming.</p>
-    </section>
-
-    <div class="pr-single-rule"></div>
-
-    <!-- Projects -->
-    <section class="pr-section">
-      <div class="pr-section-head">
-        <div class="pr-section-head-l">
-          <div class="pr-section-tag">&sect; II</div>
-          <h2 class="pr-section-title">From the workshop</h2>
+        <div>
+          <div class="empty">
+            <p class="h empty-title">Nothing published yet.</p>
+            <p>The first essay is coming.</p>
+          </div>
+          <!-- When you have essays, replace the .empty block with up to three cards:
+          <div class="cards">
+            <a href="essays/your-essay.html" class="card">
+              <span class="meta">Nov 2026 · 6 min</span>
+              <h3 class="h card-title">Essay title</h3>
+              <p>One-sentence summary.</p>
+            </a>
+          </div>
+          -->
         </div>
-        <a href="projects.html" class="pr-section-link">All projects &rarr;</a>
       </div>
-      <p style="font-family:var(--pr-serif); font-style:italic; color:var(--pr-ink-2);">Nothing shipped publicly yet.</p>
     </section>
 
-    <div class="pr-single-rule"></div>
-
-    <!-- Reading -->
-    <section class="pr-section">
-      <div class="pr-section-head">
-        <div class="pr-section-head-l">
-          <div class="pr-section-tag">&sect; III</div>
-          <h2 class="pr-section-title">Reading log</h2>
+    <section class="wrap section" aria-labelledby="reading-h">
+      <div class="section-grid">
+        <div class="section-side">
+          <h2 class="label" id="reading-h">Reading log</h2>
+          <a href="reading.html" class="more">The full log &rarr;</a>
         </div>
-        <a href="reading.html" class="pr-section-link">The full log &rarr;</a>
+        <div class="empty">
+          <p class="h empty-title">The log is empty for now.</p>
+          <p>Check back soon.</p>
+        </div>
       </div>
-      <p style="font-family:var(--pr-serif); font-style:italic; color:var(--pr-ink-2);">Log is empty for now &mdash; check back soon.</p>
     </section>
 
-    <!-- Foot -->
-    <footer class="pr-foot">
-      <div class="pr-double-rule"></div>
-      <div class="pr-foot-row">
-        <span class="pr-foot-mark">A.R.</span>
-        <span class="pr-foot-text">&copy; 2026 Ayush Ranjan. Set in Source Serif &amp; Inter.</span>
-        <span class="pr-foot-links">
-          <a href="https://github.com/AyushRanjan15" target="_blank" rel="noopener">GitHub</a>
-          <a href="https://www.linkedin.com/in/ayush-ranjan-015" target="_blank" rel="noopener">LinkedIn</a>
-        </span>
+    <section class="wrap" aria-labelledby="now-h">
+      <div class="section-grid">
+        <h2 class="label" id="now-h">Now</h2>
+        <dl class="now">
+          <div><dt>Role</dt><dd>ML Deployment Engineer</dd></div>
+          <div><dt>Based</dt><dd>Melbourne, AU</dd></div>
+          <div><dt>Open to</dt><dd>Quiet conversations about ML infra, system design, and books.</dd></div>
+        </dl>
       </div>
-    </footer>
+    </section>
   </main>
+
+  <footer class="wrap site-footer">
+    <div class="footer-grid">
+      <div>
+        <p class="h footer-line">Letters are <span class="accent-word">welcome</span>.</p>
+        <p class="footer-sub">Notes on machines that learn and systems that don&rsquo;t. <a href="about.html#contact">How to write to me</a>.</p>
+      </div>
+      <div class="footer-links">
+        <a href="https://github.com/AyushRanjan15" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/ayush-ranjan-015" target="_blank" rel="noopener">LinkedIn</a>
+        <span>&copy; 2026 Ayush Ranjan</span>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
