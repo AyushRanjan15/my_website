@@ -12,11 +12,11 @@
    If you pick a much darker or more saturated background, check
    that --muted text is still readable on it (aim for 4.5:1).   */
 :root {
-  --bg:        #f5f3ee;   /* page background */
-  --surface:   #e9e6de;   /* cards, tags, code blocks */
+  --bg:        #eceae9;   /* page background */
+  --surface:   #dfdddd;   /* cards, tags, code blocks */
   --fg:        #14161c;   /* main text (ink) */
-  --muted:     #5f6370;   /* secondary text, dates, labels */
-  --line:      #d8d5cc;   /* rules and borders */
+  --muted:     #5a5e6a;   /* secondary text, dates, labels */
+  --line:      #d0cece;   /* rules and borders */
   --accent:    #2340d0;   /* cobalt: links, highlights */
   --on-accent: #ffffff;   /* text on cobalt */
 
